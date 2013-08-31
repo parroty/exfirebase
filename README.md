@@ -10,25 +10,26 @@ Signing up Firebase and getting the access url (https://xxx.firebaseio.com/) is 
 
 ## Usage
 
-    defmodule Sample do
-      def test do
-        # acquire your Firebase URL (https://xxx.firebaseio.com/) from the environment variable.
-        url = String.from_char_list!(:os.getenv("FIREBASE_URL"))
+```elixir
+defmodule Sample do
+  def test do
+    # acquire your Firebase URL (https://xxx.firebaseio.com/) from the environment variable.
+    url = String.from_char_list!(:os.getenv("FIREBASE_URL"))
 
-        # setup url for ExFirebase module
-        ExFirebase.set_url(url)
+    # setup url for ExFirebase module
+    ExFirebase.set_url(url)
 
-        # put data in /test path"
-        ExFirebase.put("test", ["abc", "def"])
+    # put data in /test path"
+    ExFirebase.put("test", ["abc", "def"])
 
-        # get data in /test path" and print
-        IO.inspect ExFirebase.get("test")  # -> returns ["abc", "def"])
-      end
-    end
+    # get data in /test path" and print
+    IO.inspect ExFirebase.get("test")  # -> returns ["abc", "def"])
+  end
+end
 
-    Sample.test
-    # ["abc", "def"]
-
+Sample.test
+# ["abc", "def"]
+```
 
 ### Running sample.ex
 run_sample.sh calls the sample.ex.
