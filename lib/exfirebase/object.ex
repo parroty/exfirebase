@@ -1,0 +1,1 @@
+defrecord ExFirebase.Object, name: nil, data: nil

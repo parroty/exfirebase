@@ -1,0 +1,3 @@
+url = String.from_char_list!(:os.getenv("FIREBASE_URL"))
+ExFirebase.set_url(url)
+fb = ExFirebase

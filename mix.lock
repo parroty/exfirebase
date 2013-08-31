@@ -1,0 +1,7 @@
+[ "ex_doc": {:git, "git://github.com/elixir-lang/ex_doc.git", "219601d2b709d39d9d3e5441d960abc4161add73", []},
+  "exactor": {:git, "git://github.com/sasa1977/exactor.git", "a380468012191158d768ada6c604eb0bd2f6610c", []},
+  "exjson": {:git, "git://github.com/guedes/exjson.git", "9b90d3a328c5ae7421b992386c5d9cadf44609ac", []},
+  "httpotion": {:git, "git://github.com/parroty/httpotion.git", "acd2322822eae7652ad4a1aeb82c67d903a198e3", []},
+  "ibrowse": {:git, "git://github.com/cmullaparthi/ibrowse.git", "866b0ff5aca229f1ef53653eabc8ed1720c13cd6", []},
+  "meck": {:git, "git://github.com/eproxus/meck.git", "b3ac62ebe333402ed40fb9ef41384687fc30aaad", []},
+  "mock": {:git, "git://github.com/jjh42/mock.git", "98a44a42192a2efee064cd7b7fa3739f6b3b731e", []} ]
