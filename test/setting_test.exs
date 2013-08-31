@@ -3,7 +3,8 @@ Code.require_file "test_helper.exs", __DIR__
 defmodule ExFirebase.SettingTest do
   use ExUnit.Case, async: false
 
-  test "get_url raise exception if set_url has not been called" do
+  test "get_url raise exception if set_url has not been used" do
+    ExFirebase.Setting.set_url(nil)
     assert_raise ExFirebaseError, fn ->
       assert(ExFirebase.Setting.get_url("item") == "https://example-test.firebaseio.com/item.json")
     end
