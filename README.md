@@ -23,7 +23,7 @@ defmodule Sample do
     ExFirebase.put("test", ["abc", "def"])
 
     # get data in /test path" and print
-    IO.inspect ExFirebase.get("test")  # -> returns ["abc", "def"])
+    IO.inspect ExFirebase.get("test")  # -> ["abc", "def"]
   end
 end
 
