@@ -11,8 +11,8 @@ defmodule ExFirebase do
   @doc """
   Setup base url for Firebase (https://xxx.firebaseio.com/).
   """
-  def set_url(path) do
-    ExFirebase.Setting.set_url(path)
+  def set_url(url) do
+    ExFirebase.Setting.set_url(url)
   end
 
   @doc """
@@ -21,6 +21,20 @@ defmodule ExFirebase do
   """
   def get_url(path) do
     ExFirebase.Setting.get_url(path)
+  end
+
+  @doc """
+  Setup auth token for accesing the API.
+  """
+  def set_auth_token(token) do
+    ExFirebase.Setting.set_auth_token(token)
+  end
+
+  @doc """
+  Returns auth token previously specified with 'set_auth_token'
+  """
+  def get_auth_token do
+    ExFirebase.Setting.get_auth_token
   end
 
   @doc """

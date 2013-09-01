@@ -22,6 +22,13 @@ defmodule ExFirebaseTest do
     assert(ExFirebase.get == [{"root_key", "root_value"}])
   end
 
+  # @auth_token_verify [pre_condition: "items.json", expected_match: "?auth=yyy"]
+  # test_with_mock "get with auth token", ExFirebase.HTTP, [get: fn(url) -> ExFirebase.Mock.request(url, nil, @auth_token_verify) end] do
+  #   ExFirebase.set_auth_token("yyy")
+  #   assert(ExFirebase.get("items") == [{"root_key", "root_value"}])
+  #   ExFirebase.set_auth_token(nil)
+  # end
+
   test_with_mock "get raw json", ExFirebase.HTTP, [get: fn(url) -> ExFirebase.Mock.request(url) end] do
     assert(ExFirebase.get_raw_json("items") == "{\"last\":\"Sparrow\",\"first\":\"Jack\"}")
   end
