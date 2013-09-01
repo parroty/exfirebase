@@ -11,9 +11,9 @@ defmodule ExFirebase.RecordsTest do
     assert(ExFirebase.Records.get("items_records", Dummy) == records)
   end
 
-  test_with_mock "push record", ExFirebase.HTTP, [put: fn(url, data) -> ExFirebase.Mock.request(url, data) end] do
+  test_with_mock "put record", ExFirebase.HTTP, [put: fn(url, data) -> ExFirebase.Mock.request(url, data) end] do
     record = Dummy.new(id: "2", name: "Jack")
-    assert(ExFirebase.Records.push("items_push_record", [record]) == [{"name", "-INOQPH-aV_psbk3ZXEX"}])
+    assert(ExFirebase.Records.put("items_push_record", [record]) == [{"name", "-INOQPH-aV_psbk3ZXEX"}])
   end
 
   test "generate records from tuples" do
