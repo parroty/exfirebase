@@ -108,3 +108,26 @@ iex(2)> fb.set_auth_token("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
 iex(3)> fb.get("login")
 [{"last", "Sparrow"}, {"first", "Jack"}]
 ```
+
+### record
+
+```elixir
+Iex(1)> defrecord Test, id: nil, name: nil
+{:module, Test,
+ <<70, 79, 82, 49, 0, 0, 15, 60, 66, 69, 65, 77, 65, 116, 111, 109, 0, 0, 0, 230, 0, 0, 0, 26, 11, 69, 108, 105, 120, 105, 114, 46, 84, 101, 115, 116, 8, 95, 95, 105, 110, 102, 111, 95, 95, 4, 100, 111, 99, 115, ...>>,
+ nil}
+iex(2)> rec = [Test.new(id: 1, name: "Jack"), Test.new(id: 2, name: "John")]
+[Test[id: 1, name: "Jack"], Test[id: 2, name: "John"]]
+iex(3)> fb.Records.put("record", rec)
+[[{"name", "Jack"}, {"id", 1}], [{"name", "John"}, {"id", 2}]]
+iex(4)> fb.Records.get("record", Test)
+[Test[id: 1, name: "Jack"], Test[id: 2, name: "John"]]
+iex(5)> IO.puts fb.get_raw_json("record", [pretty: true])
+[ {
+  "name" : "Jack",
+  "id" : 1
+}, {
+  "name" : "John",
+  "id" : 2
+} ]
+```
