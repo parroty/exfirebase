@@ -18,8 +18,8 @@ defmodule ExFirebase.Mock do
     [url: %r/.*objects\/-J31m_688gi0nqXtK5sr.json*/, response: ""]
   ]
 
-  def request(url, _data // nil) do
-    do_request([@default_patterns], url, nil)
+  def request(url, _data // nil, assertion // nil) do
+    do_request([@default_patterns], url, assertion)
   end
 
   defp read_file(file_name) do

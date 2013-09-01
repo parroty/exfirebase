@@ -22,8 +22,14 @@ defmodule ExFirebaseTest do
     assert(ExFirebase.get == [{"root_key", "root_value"}])
   end
 
-  test_with_mock "get with raw option", ExFirebase.HTTP, [get: fn(url) -> ExFirebase.Mock.request(url) end] do
+  test_with_mock "get raw json", ExFirebase.HTTP, [get: fn(url) -> ExFirebase.Mock.request(url) end] do
     assert(ExFirebase.get_raw_json("items") == "{\"last\":\"Sparrow\",\"first\":\"Jack\"}")
+  end
+
+  @pretty_option_verify [pre_condition: "items.json", expected_match: "?print=pretty"]
+  test_with_mock "get raw json with pretty option = true should contain pretty param",
+      ExFirebase.HTTP, [get: fn(url) -> ExFirebase.Mock.request(url, nil, @pretty_option_verify) end] do
+    assert(ExFirebase.get_raw_json("items", [pretty: true]) == "{\"last\":\"Sparrow\",\"first\":\"Jack\"}")
   end
 
   test_with_mock "put", ExFirebase.HTTP, [put: fn(url, data) -> ExFirebase.Mock.request(url, data) end] do

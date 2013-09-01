@@ -62,9 +62,12 @@ defmodule ExFirebase do
 
   @doc """
   Get objects on the specified path in raw json format.
+  Options can be used to provide additional parameter for requqest.
+
+    - options[pretty: true] : Specify 'print=pretty' for human readable format.
   """
-  def get_raw_json(path // "") do
-    HTTP.get(get_url(path))
+  def get_raw_json(path // "", options // nil) do
+    HTTP.get(get_url(path) <> parse_option_url(options))
   end
 
   @doc """
@@ -79,6 +82,15 @@ defmodule ExFirebase do
   """
   def send_request(path, method, data) do
     method.(get_url(path), JSON.generate(data)) |> parse_json
+  end
+
+  defp parse_option_url(nil), do: ""
+  defp parse_option_url(options) do
+    if options[:pretty] == true do
+      "?print=pretty"
+    else
+      ""
+    end
   end
 
   defp parse_json("null"), do: []

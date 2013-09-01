@@ -8,7 +8,7 @@ Detail of the API is described in <a href="https://www.firebase.com/docs/rest-ap
 
 Signing up Firebase and getting the access url (https://xxx.firebaseio.com/) is required.
 
-## Usage
+## Sample
 
 ```elixir
 defmodule Sample do
@@ -79,4 +79,21 @@ iex(6)> fb.delete("iex")
 []
 iex(7)> fb.get("iex")
 []
+```
+
+## Usage
+### raw json
+
+```elixir
+iex(1)> IO.puts fb.get_raw_json("pretty_test")
+[{"name":"Jack","id":1},{"name":"John","id":2}]
+
+iex(2)> IO.puts fb.get_raw_json("pretty_test", [pretty: true])
+[ {
+  "name" : "Jack",
+  "id" : 1
+}, {
+  "name" : "John",
+  "id" : 2
+} ]
 ```
