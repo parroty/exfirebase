@@ -97,3 +97,14 @@ iex(2)> IO.puts fb.get_raw_json("pretty_test", [pretty: true])
   "id" : 2
 } ]
 ```
+
+### auth token
+
+```elixir
+ex(1)> fb.get("login")
+[{"error", "Permission denied."}]
+iex(2)> fb.set_auth_token("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+:ok
+iex(3)> fb.get("login")
+[{"last", "Sparrow"}, {"first", "Jack"}]
+```
