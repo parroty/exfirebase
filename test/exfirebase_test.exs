@@ -22,21 +22,30 @@ defmodule ExFirebaseTest do
     assert(ExFirebase.get == [{"root_key", "root_value"}])
   end
 
-  # @auth_token_verify [pre_condition: "items.json", expected_match: "?auth=yyy"]
-  # test_with_mock "get with auth token", ExFirebase.HTTP, [get: fn(url) -> ExFirebase.Mock.request(url, nil, @auth_token_verify) end] do
-  #   ExFirebase.set_auth_token("yyy")
-  #   assert(ExFirebase.get("items") == [{"root_key", "root_value"}])
-  #   ExFirebase.set_auth_token(nil)
-  # end
+  @auth_token_verify [pre_condition: "/.json", expected_match: "?auth=yyy"]
+  test_with_mock "get with auth token", ExFirebase.HTTP, [get: fn(url) -> ExFirebase.Mock.request(url, nil, @auth_token_verify) end] do
+    ExFirebase.set_auth_token("yyy")
+    assert(ExFirebase.get == [{"root_key", "root_value"}])
+    ExFirebase.set_auth_token(nil)
+  end
 
   test_with_mock "get raw json", ExFirebase.HTTP, [get: fn(url) -> ExFirebase.Mock.request(url) end] do
     assert(ExFirebase.get_raw_json("items") == "{\"last\":\"Sparrow\",\"first\":\"Jack\"}")
   end
 
-  @pretty_option_verify [pre_condition: "items.json", expected_match: "?print=pretty"]
+  @pretty_option_verify1 [pre_condition: "items.json", expected_match: "?print=pretty"]
   test_with_mock "get raw json with pretty option = true should contain pretty param",
-      ExFirebase.HTTP, [get: fn(url) -> ExFirebase.Mock.request(url, nil, @pretty_option_verify) end] do
+      ExFirebase.HTTP, [get: fn(url) -> ExFirebase.Mock.request(url, nil, @pretty_option_verify1) end] do
     assert(ExFirebase.get_raw_json("items", [pretty: true]) == "{\"last\":\"Sparrow\",\"first\":\"Jack\"}")
+  end
+
+  @pretty_option_verify2 [pre_condition: "items.json", expected_match: "?print=pretty&auth=zzz"]
+  test_with_mock "get raw json with pretty option and auth params",
+      ExFirebase.HTTP, [get: fn(url) -> ExFirebase.Mock.request(url, nil, @pretty_option_verify2) end] do
+
+    ExFirebase.set_auth_token("zzz")
+    assert(ExFirebase.get_raw_json("items", [pretty: true]) == "{\"last\":\"Sparrow\",\"first\":\"Jack\"}")
+    ExFirebase.set_auth_token(nil)
   end
 
   test_with_mock "put", ExFirebase.HTTP, [put: fn(url, data) -> ExFirebase.Mock.request(url, data) end] do

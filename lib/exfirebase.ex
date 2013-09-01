@@ -19,8 +19,8 @@ defmodule ExFirebase do
   Get json url for the specified path concatinated with the
   prespecified base url.
   """
-  def get_url(path) do
-    ExFirebase.Setting.get_url(path)
+  def get_url(path, options // nil) do
+    generate_url(ExFirebase.Setting.get_url(path), get_auth_token, options)
   end
 
   @doc """
@@ -81,7 +81,7 @@ defmodule ExFirebase do
     - options[pretty: true] : Specify 'print=pretty' for human readable format.
   """
   def get_raw_json(path // "", options // nil) do
-    HTTP.get(get_url(path) <> parse_option_url(options))
+    HTTP.get(get_url(path, options))
   end
 
   @doc """
@@ -98,12 +98,29 @@ defmodule ExFirebase do
     method.(get_url(path), JSON.generate(data)) |> parse_json
   end
 
-  defp parse_option_url(nil), do: ""
-  defp parse_option_url(options) do
-    if options[:pretty] == true do
-      "?print=pretty"
+  defp generate_url(url, token, options) do
+    params =
+      (parse_option_param(options) ++ parse_token_param(token))
+        |> Enum.join("&")
+
+    if params == "" do
+      url
     else
-      ""
+      url <> "?" <> params
+    end
+  end
+
+  defp parse_token_param(nil), do: []
+  defp parse_token_param(token) do
+    ["auth=#{token}"]
+  end
+
+  defp parse_option_param(nil), do: []
+  defp parse_option_param(options) do
+    if options[:pretty] == true do
+      ["print=pretty"]
+    else
+      []
     end
   end
 
