@@ -63,7 +63,7 @@ $ export FIREBASE_URL="your firebase url"
 Then run the "run_iex.sh". It loads up "dot.iex" and related libraries.
 It has pre-defined alias variables (fb) for API operations.
 
-```
+```elixir
 $ ./run_iex.sh
 iex(1)> fb
 ExFirebase
