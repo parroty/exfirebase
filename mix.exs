@@ -19,7 +19,7 @@ defmodule ExFirebase.Mixfile do
     [
       {:exjson, github: "guedes/exjson"},
       {:ex_doc, github: "elixir-lang/ex_doc"},
-      {:mock, ">= 0.0.3", github: "jjh42/mock"},
+      {:mock, ">= 0.0.3", github: "parroty/mock"},
       {:httpotion, github: "parroty/httpotion"},
       {:exactor, github: "sasa1977/exactor"},
     ]
