@@ -140,15 +140,15 @@ iex(1)> fb.Objects.post("object", [1,2,3])
 iex(2)> fb.Objects.post("object", [4,5,6])
 {"-J2UYHKPaLhuAssvLurm", [4, 5, 6]}
 iex(3)> fb.Objects.get("object")
-#HashDict<[{"-J2UYDvDyBW3RTBT0LFY", [1, 2, 3]},
+HashDict<[{"-J2UYDvDyBW3RTBT0LFY", [1, 2, 3]},
  {"-J2UYHKPaLhuAssvLurm", [4, 5, 6]}]>
 iex(4)> fb.Objects.patch("object", "-J2UYDvDyBW3RTBT0LFY", [0,0,0])
 {"-J2UYDvDyBW3RTBT0LFY", [0, 0, 0]}
 iex(5)> fb.Objects.get("object")
-#HashDict<[{"-J2UYDvDyBW3RTBT0LFY", [0, 0, 0]},
+HashDict<[{"-J2UYDvDyBW3RTBT0LFY", [0, 0, 0]},
  {"-J2UYHKPaLhuAssvLurm", [4, 5, 6]}]>
 iex(6)> fb.Objects.delete("object", "-J2UYDvDyBW3RTBT0LFY")
 []
 iex(7)> fb.Objects.get("object")
-#HashDict<[{"-J2UYHKPaLhuAssvLurm", [4, 5, 6]}]>
+HashDict<[{"-J2UYHKPaLhuAssvLurm", [4, 5, 6]}]>
 ```
