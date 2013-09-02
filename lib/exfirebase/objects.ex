@@ -19,7 +19,7 @@ defmodule ExFirebase.Objects do
   def post(path, data) do
     ExFirebase.post(path, data)
       |> Enum.first
-      |> parse
+      |> parse(data)
   end
 
   @doc """
@@ -37,6 +37,10 @@ defmodule ExFirebase.Objects do
   """
   def delete(path, record) do
     ExFirebase.delete("#{path}/#{record.name}")
+  end
+
+  defp parse({"name", name}, data) do
+    ExFirebase.Object.new(name: name, data: data)
   end
 
   defp parse({name, data}) do

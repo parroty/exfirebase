@@ -15,7 +15,8 @@ defmodule ExFirebase.Mock do
     [url: %r/.*objects2.json*/, response: "{\"-J29m_688gi0nqXtK5sr\":{\"a\":\"1\",\"b\":\"2\"},\"-J29pC-tzADFDVUIdS-p\":{\"c\":\"3\",\"d\":\"4\"}}"],
     [url: %r/.*objects\/-J29m_688gi0nqXtK5sr.json*/, response: "{\"-J29m_688gi0nqXtK5sr\":{\"a\":\"1\",\"b\":\"2\"}}"],
     [url: %r/.*objects\/-J30m_688gi0nqXtK5sr.json*/, response: "{\"-J30m_688gi0nqXtK5sr\":{\"c\":\"3\",\"d\":\"4\"}}"],
-    [url: %r/.*objects\/-J31m_688gi0nqXtK5sr.json*/, response: ""]
+    [url: %r/.*objects\/-J31m_688gi0nqXtK5sr.json*/, response: ""],
+    [url: %r/.*objects_post.json*/, response: "{\"name\":\"-J29m_688gi0nqXtK5sr\"}"]
   ]
 
   def request(url, _data // nil, assertion // nil) do

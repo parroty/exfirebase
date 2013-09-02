@@ -19,7 +19,7 @@ defmodule ExFirebase.ObjectsTest do
 
   test_with_mock "post object", ExFirebase.HTTP, [post: fn(url, data) -> ExFirebase.Mock.request(url, data) end] do
     record = Object.new(name: "-J29m_688gi0nqXtK5sr", data: [{"a","1"}, {"b", "2"}])
-    assert(Objects.post("objects", [{"a","1"}, {"b", "2"}]) == record)
+    assert(Objects.post("objects_post", [{"a","1"}, {"b", "2"}]) == record)
   end
 
   test_with_mock "update posted object", ExFirebase.HTTP, [patch: fn(url, data) -> ExFirebase.Mock.request(url, data) end] do
