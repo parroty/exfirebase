@@ -10,7 +10,7 @@ defmodule ExFirebase.Objects do
   """
   def get(path) do
     list = ExFirebase.get(path)
-    Enum.map(list, fn(x) -> parse(x) end)
+    Enum.reduce(list, HashDict.new, fn(x, d) -> parse(x, d) end)
   end
 
   @doc """
@@ -26,24 +26,23 @@ defmodule ExFirebase.Objects do
   Update the record in the path with the specified data.
   data parameter needs to be in list format.
   """
-  def patch(path, record, data) do
-    ExFirebase.patch("#{path}/#{record.name}", data)
-      |> Enum.first
-      |> parse
+  def patch(path, key, data) do
+    ExFirebase.patch("#{path}/#{key}", data)
+    {key, data}
   end
 
   @doc """
   delete the record stored in the specified path.
   """
-  def delete(path, record) do
-    ExFirebase.delete("#{path}/#{record.name}")
+  def delete(path, key) do
+    ExFirebase.delete("#{path}/#{key}")
   end
 
   defp parse({"name", name}, data) do
-    ExFirebase.Object.new(name: name, data: data)
+    {name, data}
   end
 
-  defp parse({name, data}) do
-    ExFirebase.Object.new(name: name, data: data)
+  defp parse({name, data}, dict) do
+    HashDict.put(dict, name, data)
   end
 end
