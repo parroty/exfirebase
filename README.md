@@ -14,7 +14,7 @@ Signing up Firebase and getting the access url (https://xxx.firebaseio.com/) is 
 defmodule Sample do
   def test do
     # acquire your Firebase URL (https://xxx.firebaseio.com/) from the environment variable.
-    url = String.from_char_list!(:os.getenv("FIREBASE_URL"))
+    url = System.get_env("FIREBASE_URL")
 
     # setup url for ExFirebase module
     ExFirebase.set_url(url)
