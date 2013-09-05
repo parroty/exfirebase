@@ -1,4 +1,4 @@
-[ "ex_doc": {:git, "git://github.com/elixir-lang/ex_doc.git", "d3e3a75623239b58b250ceccf38f2e5d84583d16", []},
+[ "ex_doc": {:git, "git://github.com/elixir-lang/ex_doc.git", "c13d10aaed19ef05c2c8362b9b555926e9770902", []},
   "exactor": {:git, "git://github.com/sasa1977/exactor.git", "a380468012191158d768ada6c604eb0bd2f6610c", []},
   "exjson": {:git, "git://github.com/guedes/exjson.git", "9b90d3a328c5ae7421b992386c5d9cadf44609ac", []},
   "httpotion": {:git, "git://github.com/parroty/httpotion.git", "acd2322822eae7652ad4a1aeb82c67d903a198e3", []},
