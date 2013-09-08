@@ -18,7 +18,7 @@ defmodule ExFirebase.Mixfile do
   # { :foobar, "~> 0.1", git: "https://github.com/elixir-lang/foobar.git" }
   defp deps do
     [
-      {:exjson, github: "guedes/exjson"},
+      {:json, github: "cblage/elixir-json"},
       {:ex_doc, github: "elixir-lang/ex_doc"},
       {:mock, ">= 0.0.3", github: "parroty/mock"},
       {:httpotion, github: "parroty/httpotion"},

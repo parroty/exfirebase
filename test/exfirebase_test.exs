@@ -11,7 +11,7 @@ defmodule ExFirebaseTest do
   end
 
   test_with_mock "get", ExFirebase.HTTP, [get: fn(url) -> ExFirebase.Mock.request(url) end] do
-    assert(ExFirebase.get("items") == [{"last", "Sparrow"}, {"first", "Jack"}])
+    assert(ExFirebase.get("items") == [{"first", "Jack"}, {"last", "Sparrow"}])
   end
 
   test_with_mock "get with null response return []", ExFirebase.HTTP, [get: fn(url) -> ExFirebase.Mock.request(url) end] do
