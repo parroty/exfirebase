@@ -1,4 +1,4 @@
-ExFirebase [![Build Status](https://secure.travis-ci.org/parroty/exfirebase.png?branch=master "Build Status")](http://travis-ci.org/parroty/exfirebase)
+ExFirebase [![Build Status](https://secure.travis-ci.org/parroty/exfirebase.png?branch=master "Build Status")](http://travis-ci.org/parroty/exfirebase) [![Coverage Status](https://coveralls.io/repos/parroty/exfirebase/badge.png?branch=master)](https://coveralls.io/r/parroty/exfirebase?branch=master)
 ============
 An elixir library for accessing the Firebase REST API.
 
