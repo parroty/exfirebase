@@ -1,6 +1,6 @@
 [ "ex_doc": {:git, "git://github.com/elixir-lang/ex_doc.git", "c13d10aaed19ef05c2c8362b9b555926e9770902", []},
   "exactor": {:git, "git://github.com/sasa1977/exactor.git", "a380468012191158d768ada6c604eb0bd2f6610c", []},
-  "excoveralls": {:git, "git://github.com/parroty/excoveralls.git", "68de267fce7835ef92559f6fa322cc539d56a753", []},
+  "excoveralls": {:git, "git://github.com/parroty/excoveralls.git", "2356f5592e3df8f44016d8c02e269a08fa975dfb", [{:branch, "task"}]},
   "exprintf": {:git, "git://github.com/parroty/exprintf.git", "93498cd36179408ade74fb82bfcc77f195318c85", []},
   "httpotion": {:git, "git://github.com/parroty/httpotion.git", "acd2322822eae7652ad4a1aeb82c67d903a198e3", []},
   "ibrowse": {:git, "git://github.com/cmullaparthi/ibrowse.git", "866b0ff5aca229f1ef53653eabc8ed1720c13cd6", []},

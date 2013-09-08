@@ -6,7 +6,7 @@ defmodule ExFirebase.Mixfile do
       version: "0.0.1",
       elixir: "~> 0.10.2-dev",
       deps: deps
-    ] ++ excoveralls_setting
+    ]
   end
 
   # Configuration for the OTP application
@@ -23,19 +23,7 @@ defmodule ExFirebase.Mixfile do
       {:mock, ">= 0.0.3", github: "parroty/mock"},
       {:httpotion, github: "parroty/httpotion"},
       {:exactor, github: "sasa1977/exactor"},
-      {:excoveralls, github: "parroty/excoveralls"}
-    ]
-  end
-
-  # Settings for excoveralls
-  defp excoveralls_setting do
-    [
-      test_coverage: [tool: ExCoveralls, type: "local"],
-      env: [
-        coveralls_travis:  [test_coverage: [tool: ExCoveralls, type: "travis"]],
-        coveralls_local:   [test_coverage: [tool: ExCoveralls, type: "local"]],
-        coveralls_general: [test_coverage: [tool: ExCoveralls, type: "general"]]
-      ]
+      {:excoveralls, github: "parroty/excoveralls", branch: "task"}
     ]
   end
 end
