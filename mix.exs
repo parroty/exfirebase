@@ -23,7 +23,7 @@ defmodule ExFirebase.Mixfile do
       {:mock, ">= 0.0.3", github: "parroty/mock"},
       {:httpotion, github: "parroty/httpotion"},
       {:exactor, github: "sasa1977/exactor"},
-      {:excoveralls, github: "parroty/excoveralls", branch: "task"}
+      {:excoveralls, github: "parroty/excoveralls"}
     ]
   end
 end
