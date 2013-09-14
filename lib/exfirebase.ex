@@ -53,6 +53,22 @@ defmodule ExFirebase do
   end
 
   @doc """
+  Push the object into the first position of the items
+  """
+  def push(path, object) do
+    items = get(path)
+    put(path, [object|items])
+  end
+
+  @doc """
+  Append the object into the last position of the items
+  """
+  def append(path, object) do
+    items = get(path)
+    put(path, items ++ [object])
+  end
+
+  @doc """
   Post specified object.
   It appends the data to the specified path.
   """

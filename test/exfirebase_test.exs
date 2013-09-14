@@ -63,4 +63,14 @@ defmodule ExFirebaseTest do
   test_with_mock "delete", ExFirebase.HTTP, [delete: fn(url) -> ExFirebase.Mock.request(url) end] do
     assert(ExFirebase.delete("items_push") == [{"name", "-INOQPH-aV_psbk3ZXEX"}])
   end
+
+  test_with_mock "push", ExFirebase.HTTP, [get: fn(url) -> ExFirebase.Mock.request(url) end,
+                                           put: fn(_url, data) -> assert(data == "[4,1,2,3]") && data end] do
+    ExFirebase.push("lists", 4)
+  end
+
+  test_with_mock "append", ExFirebase.HTTP, [get: fn(url) -> ExFirebase.Mock.request(url) end,
+                                           put: fn(_url, data) -> assert(data == "[1,2,3,4]") && data end] do
+    ExFirebase.append("lists", 4)
+  end
 end
