@@ -16,26 +16,26 @@ defmodule ExFirebase.Mixfile do
 
   # Returns the list of dependencies in the format:
   # { :foobar, "~> 0.1", git: "https://github.com/elixir-lang/foobar.git" }
-  defp deps(:test) do
-    deps(:prod) ++
+  def deps(:test) do
+    deps(:dev) ++
       [
         {:mock, ">= 0.0.3", github: "parroty/mock"},
         {:excoveralls, github: "parroty/excoveralls"}
       ]
   end
 
-  defp deps(:dev) do
+  def deps(:dev) do
     deps(:prod) ++
       [
-        {:ex_doc, github: "elixir-lang/ex_doc"},
+        {:ex_doc, github: "elixir-lang/ex_doc"}
       ]
   end
 
-  defp deps(_) do
+  def deps(:prod) do
     [
       {:json, github: "cblage/elixir-json"},
       {:httpotion, github: "parroty/httpotion"},
-      {:exactor, github: "sasa1977/exactor"},
+      {:exactor, github: "sasa1977/exactor"}
     ]
   end
 end
