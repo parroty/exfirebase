@@ -5,7 +5,7 @@ defmodule ExFirebase.Mixfile do
     [ app: :exfirebase,
       version: "0.0.1",
       elixir: "~> 0.10.2-dev",
-      deps: deps
+      deps: deps(Mix.env)
     ]
   end
 
@@ -16,14 +16,26 @@ defmodule ExFirebase.Mixfile do
 
   # Returns the list of dependencies in the format:
   # { :foobar, "~> 0.1", git: "https://github.com/elixir-lang/foobar.git" }
-  defp deps do
+  defp deps(:test) do
+    deps(:prod) ++
+      [
+        {:mock, ">= 0.0.3", github: "parroty/mock"},
+        {:excoveralls, github: "parroty/excoveralls"}
+      ]
+  end
+
+  defp deps(:dev) do
+    deps(:prod) ++
+      [
+        {:ex_doc, github: "elixir-lang/ex_doc"},
+      ]
+  end
+
+  defp deps(_) do
     [
       {:json, github: "cblage/elixir-json"},
-      {:ex_doc, github: "elixir-lang/ex_doc"},
-      {:mock, ">= 0.0.3", github: "parroty/mock"},
       {:httpotion, github: "parroty/httpotion"},
       {:exactor, github: "sasa1977/exactor"},
-      {:excoveralls, github: "parroty/excoveralls"}
     ]
   end
 end
