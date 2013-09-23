@@ -77,10 +77,20 @@ defmodule ExFirebase.Dict.Records do
   It returns a records in record_type.
   """
   def get(path, key, record_type) when is_atom(record_type) do
-    keywords = [{"id", key} | ExFirebase.Dict.get(path, key)]
-    [keywords] |>
-      ExFirebase.Records.from_tuples(record_type) |>
-      Enum.first
+    tuple = [{"id", key} | ExFirebase.Dict.get(path, key)]
+    ExFirebase.Records.from_tuple(tuple, record_type)
+  end
+
+  @doc """
+  Post object to the specified path.
+  """
+  def post(path, record, record_type) when is_record(record) and is_atom(record_type) do
+    ExFirebase.Dict.post(path, record.update(id: nil).to_keywords)
+      |> update_record_id(record)
+  end
+
+  defp update_record_id({key, _params}, record) do
+    record.update(id: key)
   end
 
   @doc """
@@ -88,14 +98,27 @@ defmodule ExFirebase.Dict.Records do
   The record needs to have id field
   """
   def patch(path, record) when is_record(record) do
-    if record.id == nil do
-      raise "id field is empty for the specified record."
-    end
+    verify_record_has_id_value(record)
     ExFirebase.Dict.patch(path, record.id, record.update(id: nil).to_keywords)
+    record
+  end
+
+  @doc """
+  delete the record stored in the specified path.
+  """
+  def delete(path, record) do
+    verify_record_has_id_value(record)
+    ExFirebase.Dict.delete(path, record.id)
   end
 
   defp extract_record(dict, key) do
     [{"id", key} | HashDict.fetch!(dict, key)]
+  end
+
+  defp verify_record_has_id_value(record) do
+    if record.id == nil do
+      raise "id field is empty for the specified record."
+    end
   end
 
   defp verify_record_has_id_field(record_type) do

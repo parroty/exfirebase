@@ -30,7 +30,8 @@ defmodule ExFirebase.Records do
     Enum.map(record_list, fn(record) -> record.to_keywords end)
   end
 
-  defp from_tuple(tuple, record_type) do
+  @doc "convert from tuple to record"
+  def from_tuple(tuple, record_type) do
     keywords = Enum.map(tuple, fn({a, b}) -> {binary_to_atom(a), b} end)
     record_type.new(keywords)
   end
