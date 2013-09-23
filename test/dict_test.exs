@@ -5,6 +5,10 @@ defmodule ExFirebase.DictTest do
   import Mock
   alias ExFirebase.Dict
 
+  setup_all do
+    ExFirebase.set_url("https://example-test.firebaseio.com/")
+  end
+
   @dict1 HashDict.new([{"-J29m_688gi0nqXtK5sr", [{"a","1"}, {"b", "2"}]}])
   @dict2 HashDict.put(@dict1, "-J29pC-tzADFDVUIdS-p", [{"c","3"}, {"d", "4"}])
   @dict3 HashDict.new([{"-J29m_688gi0nqXtK5sr", [{"a","1"}, {"b", "2"}]}])
@@ -40,9 +44,12 @@ defmodule ExFirebase.Dict.RecordsTest do
   @dict2 HashDict.put(@dict1, "-J29pC-tzADFDVUIdS-p", [{"c","3"}, {"d", "4"}])
   @dict3 HashDict.new([{"-J29m_688gi0nqXtK5sr", [{"a","1"}, {"b", "2"}]}])
 
-
   defrecord NoIdDummy, a: nil, b: nil, c: nil, d: nil
   defrecord Dummy, id: nil, a: nil, b: nil, c: nil, d: nil
+
+  setup_all do
+    ExFirebase.set_url("https://example-test.firebaseio.com/")
+  end
 
   test_with_mock "get records", ExFirebase.HTTP, [get: fn(url) -> ExFirebase.Mock.request(url) end] do
     assert(Dict.Records.get("objects", Dummy) == [Dummy.new(id: "-J29m_688gi0nqXtK5sr", a: "1", b: "2")])
