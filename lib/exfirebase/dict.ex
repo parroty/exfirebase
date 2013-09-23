@@ -1,4 +1,4 @@
-defmodule ExFirebase.Objects do
+defmodule ExFirebase.Dict do
   @moduledoc """
   Provides object-posting operations for Firebase post API.
   Firebase's post API assigns random name attribute for its key.
@@ -6,7 +6,7 @@ defmodule ExFirebase.Objects do
   """
 
   @doc """
-  Get objects from the specified path. It returns ExFirebase.Object record
+  Get objects from the specified path.
   """
   def get(path) do
     list = ExFirebase.get(path)
@@ -14,7 +14,7 @@ defmodule ExFirebase.Objects do
   end
 
   @doc """
-  Get objects from the specified path and key. It returns ExFirebase.Object record
+  Get objects from the specified path and key.
   """
   def get(path, key) do
     ExFirebase.get("#{path}/#{key}")
@@ -45,15 +45,28 @@ defmodule ExFirebase.Objects do
     ExFirebase.delete("#{path}/#{key}")
   end
 
+  defp parse({"name", name}, data) do
+    {name, data}
+  end
+
+  defp parse({name, data}, dict) do
+    HashDict.put(dict, name, data)
+  end
+end
+
+defmodule ExFirebase.Dict.Records do
+  @moduledoc """
+  Provides dict oerations along with record objects.
+  """
 
   @doc """
   Get objects from the specified path as the Record format.
   It returns the list of the records in record_type.
   """
-  def get_records(path, record_type) when is_atom(record_type) do
+  def get(path, record_type) when is_atom(record_type) do
     verify_record_has_id_field(record_type)
 
-    dict = get(path)
+    dict = ExFirebase.Dict.get(path)
     HashDict.keys(dict) |>
       Enum.map(&extract_record(dict, &1)) |>
       ExFirebase.Records.from_tuples(record_type)
@@ -63,8 +76,8 @@ defmodule ExFirebase.Objects do
   Get object from the specified path as the Record format.
   It returns a records in record_type.
   """
-  def get_record(path, key, record_type) when is_atom(record_type) do
-    keywords = [{"id", key} | get(path, key)]
+  def get(path, key, record_type) when is_atom(record_type) do
+    keywords = [{"id", key} | ExFirebase.Dict.get(path, key)]
     [keywords] |>
       ExFirebase.Records.from_tuples(record_type) |>
       Enum.first
@@ -74,11 +87,11 @@ defmodule ExFirebase.Objects do
   Update the record in the path with the specified record.
   The record needs to have id field
   """
-  def patch_record(path, record) when is_record(record) do
+  def patch(path, record) when is_record(record) do
     if record.id == nil do
       raise "id field is empty for the specified record."
     end
-    patch(path, record.id, record.update(id: nil).to_keywords)
+    ExFirebase.Dict.patch(path, record.id, record.update(id: nil).to_keywords)
   end
 
   defp extract_record(dict, key) do
@@ -89,13 +102,5 @@ defmodule ExFirebase.Objects do
     if record_type.__info__(:functions)[:id] == nil do
       raise "Specified record #{record_type} does not have :id field."
     end
-  end
-
-  defp parse({"name", name}, data) do
-    {name, data}
-  end
-
-  defp parse({name, data}, dict) do
-    HashDict.put(dict, name, data)
   end
 end
