@@ -6,11 +6,18 @@ defmodule ExFirebase.Objects do
   """
 
   @doc """
-  Get objects from the specified path and returns ExFirebase.Object record
+  Get objects from the specified path. It returns ExFirebase.Object record
   """
   def get(path) do
     list = ExFirebase.get(path)
     Enum.reduce(list, HashDict.new, fn(x, d) -> parse(x, d) end)
+  end
+
+  @doc """
+  Get objects from the specified path and key. It returns ExFirebase.Object record
+  """
+  def get(path, key) do
+    ExFirebase.get("#{path}/#{key}")
   end
 
   @doc """
