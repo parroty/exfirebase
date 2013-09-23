@@ -62,7 +62,7 @@ defmodule ExFirebase.Dict.RecordsTest do
   end
 
   test_with_mock "post a record", ExFirebase.HTTP, [post: fn(url, data) -> ExFirebase.Mock.request(url, data) end] do
-    assert(Dict.Records.post("objects_post", Dummy.new(a: "1", b: "2"), Dummy) ==
+    assert(Dict.Records.post("objects_post", Dummy.new(a: "1", b: "2")) ==
              Dummy.new(id: "-J29m_688gi0nqXtK5sr", a: "1", b: "2"))
   end
 

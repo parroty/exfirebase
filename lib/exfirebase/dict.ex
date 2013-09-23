@@ -77,6 +77,8 @@ defmodule ExFirebase.Dict.Records do
   It returns a records in record_type.
   """
   def get(path, key, record_type) when is_atom(record_type) do
+    verify_record_has_id_field(record_type)
+
     tuple = [{"id", key} | ExFirebase.Dict.get(path, key)]
     ExFirebase.Records.from_tuple(tuple, record_type)
   end
@@ -84,7 +86,7 @@ defmodule ExFirebase.Dict.Records do
   @doc """
   Post object to the specified path.
   """
-  def post(path, record, record_type) when is_record(record) and is_atom(record_type) do
+  def post(path, record) when is_record(record) do
     ExFirebase.Dict.post(path, record.update(id: nil).to_keywords)
       |> update_record_id(record)
   end
