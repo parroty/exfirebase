@@ -27,16 +27,11 @@ defmodule ExFirebase.Records do
 
   @doc "convert from record list to tuple list"
   def to_tuples(record_list) do
-    Enum.map(record_list, fn(record) -> to_tuple(record) end)
+    Enum.map(record_list, fn(record) -> record.to_keywords end)
   end
 
   defp from_tuple(tuple, record_type) do
     keywords = Enum.map(tuple, fn({a, b}) -> {binary_to_atom(a), b} end)
     record_type.new(keywords)
-  end
-
-  defp to_tuple(record) do
-    keywords = record.to_keywords
-    Enum.map(keywords, fn({a, b}) -> {atom_to_binary(a), b} end)
   end
 end
