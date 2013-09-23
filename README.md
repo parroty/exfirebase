@@ -109,7 +109,7 @@ iex(3)> fb.get("login")
 [{"last", "Sparrow"}, {"first", "Jack"}]
 ```
 
-### record
+### records
 
 ```elixir
 Iex(1)> defrecord Test, id: nil, name: nil
@@ -132,23 +132,43 @@ iex(5)> IO.puts fb.get_raw_json("record", [pretty: true])
 } ]
 ```
 
-### object posting
+### dicts
 
 ```elixir
-iex(1)> fb.Objects.post("object", [1,2,3])
-{"-J2UYDvDyBW3RTBT0LFY", [1, 2, 3]}
-iex(2)> fb.Objects.post("object", [4,5,6])
-{"-J2UYHKPaLhuAssvLurm", [4, 5, 6]}
-iex(3)> fb.Objects.get("object")
-HashDict<[{"-J2UYDvDyBW3RTBT0LFY", [1, 2, 3]},
- {"-J2UYHKPaLhuAssvLurm", [4, 5, 6]}]>
-iex(4)> fb.Objects.patch("object", "-J2UYDvDyBW3RTBT0LFY", [0,0,0])
-{"-J2UYDvDyBW3RTBT0LFY", [0, 0, 0]}
-iex(5)> fb.Objects.get("object")
-HashDict<[{"-J2UYDvDyBW3RTBT0LFY", [0, 0, 0]},
- {"-J2UYHKPaLhuAssvLurm", [4, 5, 6]}]>
-iex(6)> fb.Objects.delete("object", "-J2UYDvDyBW3RTBT0LFY")
+iex(1)> defrecord Weather, id: "", city: "", temp_lo: 0, temp_hi: 0, prcp: 0
+{:module, Weather,
+ <<70, 79, 82, 49, 0, 0, 20, 100, 66, 69, 65, 77, 65, 116, 111, 109, 0, 0, 1, 45, 0, 0, 0, 33, 14, 69, 108, 105, 120, 105, 114, 46, 87, 101, 97, 116, 104, 101, 114, 8, 95, 95, 105, 110, 102, 111, 95, 95, 4, 100, ...>>,
+ nil}
+
+iex(2)> alias ExFirebase.Dict.Records
+nil
+
+iex(3)> Records.post("dict", Weather.new(city: "Tokyo"), Weather)
+Weather[id: "-J4AFHhI0k5C1vpORZIy", city: "Tokyo", temp_lo: 0, temp_hi: 0, prcp: 0]
+
+iex(4)> Records.post("dict", Weather.new(city: "Osaka"), Weather)
+Weather[id: "-J4AFJDF2A2cEtJRMhgm", city: "Osaka", temp_lo: 0, temp_hi: 0,
+ prcp: 0]
+
+iex(5)> Records.get("dict", Weather)
+[Weather[id: "-J4AFHhI0k5C1vpORZIy", city: "Tokyo", temp_lo: 0, temp_hi: 0,  prcp: 0],
+ Weather[id: "-J4AFJDF2A2cEtJRMhgm", city: "Osaka", temp_lo: 0, temp_hi: 0,  prcp: 0]]
+
+iex(6)> record = Records.get("dict", "-J4AFJDF2A2cEtJRMhgm", Weather)
+Weather[id: "-J4AFJDF2A2cEtJRMhgm", city: "Osaka", temp_lo: 0, temp_hi: 0, prcp: 0]
+
+iex(7)> record = record.update(temp_lo: 10)
+Weather[id: "-J4AFJDF2A2cEtJRMhgm", city: "Osaka", temp_lo: 10, temp_hi: 0,  prcp: 0]
+
+iex(8)> Records.patch("dict", record)
+Weather[id: "-J4AFJDF2A2cEtJRMhgm", city: "Osaka", temp_lo: 10, temp_hi: 0,  prcp: 0]
+
+iex(9)> Records.get("dict", "-J4AFJDF2A2cEtJRMhgm", Weather)
+Weather[id: "-J4AFJDF2A2cEtJRMhgm", city: "Osaka", temp_lo: 10, temp_hi: 0,  prcp: 0]
+
+iex(10)> Records.delete("dict", record)
 []
-iex(7)> fb.Objects.get("object")
-HashDict<[{"-J2UYHKPaLhuAssvLurm", [4, 5, 6]}]>
+
+iex(11)> Records.get("dict",  Weather)
+[Weather[id: "-J4AFHhI0k5C1vpORZIy", city: "Tokyo", temp_lo: 0, temp_hi: 0,  prcp: 0]]
 ```
