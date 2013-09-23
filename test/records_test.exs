@@ -24,8 +24,8 @@ defmodule ExFirebase.RecordsTest do
 
   test "generate tuples from records" do
     record = Dummy.new(id: 2, name: "test")
-    tuple  = [{"id", 2}, {"name", "test"}]
-    assert(ExFirebase.Records.to_tuples([record]) == [tuple])
+    keywords = [id: 2, name: "test"]
+    assert(ExFirebase.Records.to_tuples([record]) == [keywords])
   end
 
 end
