@@ -81,6 +81,12 @@ iex(7)> fb.get("iex")
 []
 ```
 
+### Running on Dynamo
+The following repo is a sample dynamo project for implementing rails-like scaffold page built using exfirebase.
+
+- https://github.com/parroty/dynamo_firebase
+
+
 ## Usage
 ### raw json
 
@@ -139,6 +145,28 @@ iex(5)> IO.puts fb.get_raw_json("record", [pretty: true])
 ```
 
 ### dicts
+ExFirebase.Dict provides a dictionary operation based on the Firebase-assigned name parameter.
+
+```elixir
+iex(1)> alias ExFirebase.Dict
+nil
+
+iex(2)> Dict.post("object", [1,2,3])
+{"-J4ARC-BzalPwVIbMY9-", [1, 2, 3]}
+
+iex(3)> Dict.post("object", [4,5,6])
+{"-J4ARDLsZplq-ZNlFhgD", [4, 5, 6]}
+
+iex(4)> Dict.get("object")
+#HashDict<[{"-J4ARC-BzalPwVIbMY9-", [1, 2, 3]},
+ {"-J4ARDLsZplq-ZNlFhgD", [4, 5, 6]}]>
+
+iex(5)> dict = Dict.get("object")
+#HashDict<[{"-J4ARC-BzalPwVIbMY9-", [1, 2, 3]},
+ {"-J4ARDLsZplq-ZNlFhgD", [4, 5, 6]}]>
+```
+
+ExFirebase.Dict.Records uses the name parameter as "id" field of the record.
 
 ```elixir
 iex(1)> defrecord Weather, id: "", city: "", temp_lo: 0, temp_hi: 0, prcp: 0
