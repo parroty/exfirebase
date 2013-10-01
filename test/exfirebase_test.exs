@@ -4,8 +4,6 @@ defmodule ExFirebaseTest do
   use ExUnit.Case, async: false
   import Mock
 
-  # TODO : need to veirfy parameters
-
   setup_all do
     ExFirebase.set_url("https://example-test.firebaseio.com/")
   end
@@ -70,7 +68,7 @@ defmodule ExFirebaseTest do
   end
 
   test_with_mock "append", ExFirebase.HTTP, [get: fn(url) -> ExFirebase.Mock.request(url) end,
-                                           put: fn(_url, data) -> assert(data == "[1,2,3,4]") && data end] do
+                                             put: fn(_url, data) -> assert(data == "[1,2,3,4]") && data end] do
     ExFirebase.append("lists", 4)
   end
 end
