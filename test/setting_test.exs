@@ -18,6 +18,7 @@ defmodule ExFirebase.SettingTest do
   test "get_auth_token returns the value of set_auth_token" do
     ExFirebase.Setting.set_auth_token("TestToken")
     assert(ExFirebase.Setting.get_auth_token == "TestToken")
+    ExFirebase.Setting.set_auth_token(nil)
   end
 
   test "Changin URL and Token should not be affected each other" do

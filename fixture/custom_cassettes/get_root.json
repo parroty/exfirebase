@@ -1,0 +1,11 @@
+[
+  {
+    "request": {
+      "url": "https://example-test.firebaseio.com/.json"
+    },
+    "response": {
+      "status_code": 200,
+      "body": "{\"root_key\":\"root_value\"}"
+    }
+  }
+]

@@ -1,0 +1,11 @@
+[
+  {
+    "request": {
+      "url": "https://example-test.firebaseio.com/empty.json"
+    },
+    "response": {
+      "status_code": 200,
+      "body": "null"
+    }
+  }
+]

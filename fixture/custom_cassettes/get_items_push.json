@@ -1,0 +1,11 @@
+[
+  {
+    "request": {
+      "url": "https://example-test.firebaseio.com/items_push.json"
+    },
+    "response": {
+      "status_code": 200,
+      "body": "{\"name\":\"-INOQPH-aV_psbk3ZXEX\"}"
+    }
+  }
+]

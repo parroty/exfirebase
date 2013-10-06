@@ -1,0 +1,22 @@
+[
+  {
+    "request": {
+      "url": "https://example-test.firebaseio.com/lists.json",
+      "method": "get"
+    },
+    "response": {
+      "status_code": 200,
+      "body": "[1, 2, 3]"
+    }
+  },
+  {
+    "request": {
+      "url": "https://example-test.firebaseio.com/lists.json",
+      "method": "put"
+    },
+    "response": {
+      "status_code": 200,
+      "body": "[1, 2, 3, 4]"
+    }
+  }
+]
