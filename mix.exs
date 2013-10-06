@@ -23,8 +23,9 @@ defmodule ExFirebase.Mixfile do
   def deps(:dev) do
     deps(:prod) ++
       [
-        {:mock, ">= 0.0.3", github: "parroty/mock"},
+        {:mock, github: "jjh42/mock"},
         {:excoveralls, github: "parroty/excoveralls"},
+        {:exvcr, github: "parroty/exvcr"},
         {:ex_doc, github: "elixir-lang/ex_doc"}
       ]
   end

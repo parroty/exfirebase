@@ -1,11 +1,12 @@
-[ "ex_doc": {:git, "git://github.com/elixir-lang/ex_doc.git", "ed9ad6db2945d758c9afb321376df27dd9aa6bd2", []},
+[ "ex_doc": {:git, "git://github.com/elixir-lang/ex_doc.git", "b503a6b37a142aeb527f3e29949287f398030d4b", []},
   "exactor": {:git, "git://github.com/sasa1977/exactor.git", "a380468012191158d768ada6c604eb0bd2f6610c", []},
   "excoveralls": {:git, "git://github.com/parroty/excoveralls.git", "d17956789a514bf0393ea863525e3caae9732d65", []},
-  "exprintf": {:git, "git://github.com/parroty/exprintf.git", "8c3bf49313f755bc1012c29130de78a6b5d7a79e", []},
+  "exprintf": {:git, "git://github.com/parroty/exprintf.git", "ae04b90dd0aae48e088b0c9af5cdec31fe50ec81", []},
+  "exvcr": {:git, "git://github.com/parroty/exvcr.git", "36921a66244a8046cda6a678a82f16203b4caf35", []},
   "httpotion": {:git, "git://github.com/parroty/httpotion.git", "acd2322822eae7652ad4a1aeb82c67d903a198e3", []},
-  "ibrowse": {:git, "git://github.com/cmullaparthi/ibrowse.git", "866b0ff5aca229f1ef53653eabc8ed1720c13cd6", []},
+  "ibrowse": {:git, "git://github.com/cmullaparthi/ibrowse.git", "bbad869ea595c594912cf71fbd622aa80577c8f6", []},
   "jsex": {:git, "git://github.com/talentdeficit/jsex.git", "95492e9a4f418c10ff1c74d669d89ca5e8ac4d67", []},
-  "json": {:git, "git://github.com/cblage/elixir-json.git", "3573eb996c893d384a58ad47e83f48a82fa9d990", []},
+  "json": {:git, "git://github.com/cblage/elixir-json.git", "9bac6d4767170bc71b91b8548d8dc8eb19fa938a", []},
   "jsx": {:git, "git://github.com/talentdeficit/jsx.git", "e50af6e109cb03bd26acf715cbc77de746507d1d", [{:tag, "v1.4.3"}]},
-  "meck": {:git, "git://github.com/eproxus/meck.git", "1286aba1cb6bbd6c9fc3f817740758b224843ee7", []},
-  "mock": {:git, "git://github.com/parroty/mock.git", "e31b21af0117bb26da28d2d38cf7b73fb3b482d9", []} ]
+  "meck": {:git, "git://github.com/eproxus/meck.git", "2447206f201bab1054c49cd32621eee23fa0ee3b", [{:tag, "0.7.2"}]},
+  "mock": {:git, "git://github.com/jjh42/mock.git", "e54a8f8ac3b69b5a610399f7fb5efe65446526eb", []} ]
