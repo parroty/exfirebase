@@ -1,0 +1,12 @@
+[
+  {
+    "request": {
+      "url": "https://example-test.firebaseio.com/objects/-J30m_688gi0nqXtK5sr.json",
+      "method": "patch"
+    },
+    "response": {
+      "status_code": 200,
+      "body": "{\"c\":\"3\",\"d\":\"4\"}"
+    }
+  }
+]

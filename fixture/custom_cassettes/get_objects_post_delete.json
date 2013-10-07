@@ -1,0 +1,12 @@
+[
+  {
+    "request": {
+      "url": "https://example-test.firebaseio.com/objects/-J31m_688gi0nqXtK5sr.json",
+      "method": "delete"
+    },
+    "response": {
+      "status_code": 200,
+      "body": "null"
+    }
+  }
+]
