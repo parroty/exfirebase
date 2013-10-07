@@ -1,0 +1,11 @@
+[
+  {
+    "request": {
+      "url": "https://example-test.firebaseio.com/items_records.json"
+    },
+    "response": {
+      "status_code": 200,
+      "body": "[{\"id\":\"2\",\"name\":\"Jack\"}, {\"id\":\"3\",\"name\":\"Sparrow\"}]"
+    }
+  }
+]
