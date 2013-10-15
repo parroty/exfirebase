@@ -208,3 +208,7 @@ iex(10)> Records.delete("dict", record)
 iex(11)> Records.get("dict",  Weather)
 [Weather[id: "-J4AFHhI0k5C1vpORZIy", city: "Tokyo", temp_lo: 0, temp_hi: 0,  prcp: 0]]
 ```
+
+## TODO
+- Support push notification using websocket.
+- Support priority attribute.
