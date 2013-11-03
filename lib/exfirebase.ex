@@ -13,6 +13,7 @@ defmodule ExFirebase do
   """
   def set_url(url) do
     ExFirebase.Setting.set_url(url)
+    :ok
   end
 
   @doc """

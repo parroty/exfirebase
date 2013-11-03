@@ -6,6 +6,10 @@ defmodule ExFirebase.RecordsTest do
 
   defrecord Dummy, id: 1, name: "name"
 
+  setup_all do
+    ExFirebase.set_url("https://example-test.firebaseio.com/")
+  end
+
   test "get records" do
     use_cassette "get_items_records", custom: true do
       records = [Dummy.new(id: "2", name: "Jack"), Dummy.new(id: "3", name: "Sparrow")]

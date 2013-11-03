@@ -25,8 +25,7 @@ defmodule ExFirebase.Mixfile do
       [
         {:mock, github: "parroty/mock", branch: "version"},
         {:excoveralls, github: "parroty/excoveralls"},
-        {:exvcr, github: "parroty/exvcr"},
-        {:ex_doc, github: "elixir-lang/ex_doc"}
+        {:exvcr, github: "parroty/exvcr"}
       ]
   end
 
@@ -34,8 +33,7 @@ defmodule ExFirebase.Mixfile do
     [
       {:ibrowse, github: "cmullaparthi/ibrowse", ref: "866b0ff5aca229f1ef53653eabc8ed1720c13cd6", override: true},
       {:json, github: "cblage/elixir-json"},
-      {:httpotion, github: "myfreeweb/httpotion"},
-      {:exactor, github: "sasa1977/exactor"}
+      {:httpotion, github: "myfreeweb/httpotion"}
     ]
   end
 end

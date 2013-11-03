@@ -3,36 +3,39 @@ defmodule ExFirebase.Setting do
   An module to store the base-url setting for Firebase connection.
   Set method needs to be called in advance for API call.
   """
-  use ExActor, export: :singleton
+  @ets_table :exfirebase_setting
 
-  definit do: HashDict.new
-  defcall get, state: state, do: state
-  defcast set(x), do: new_state(x)
+  def setup do
+    if :ets.info(@ets_table) == :undefined do
+      :ets.new(@ets_table, [:set, :public, :named_table])
+    end
+  end
+
+  def get(key) do
+    setup
+    :ets.lookup(@ets_table, key)[key]
+  end
+
+  def set(key, value) do
+    setup
+    :ets.insert(@ets_table, {key, value})
+  end
 
   def set_url(url) do
-    start
-    hash = HashDict.put(get, :url, url)
-    set(hash)
+    set(:url, url)
   end
 
   def get_url(path) do
-    start
-    url = HashDict.get(get, :url)
-    if url == nil do
-      raise ExFirebaseError.new(message: "call 'set_url' before using 'get_url'")
-    end
-
+    url = get(:url)
+    if url == nil, do: raise ExFirebaseError.new(message: "call 'set_url' before using 'get_url'")
     url <> path <> ".json"
   end
 
   def set_auth_token(token) do
-    start
-    hash = HashDict.put(get, :token, token)
-    set(hash)
+    set(:token, token)
   end
 
   def get_auth_token do
-    start
-    HashDict.get(get, :token)
+    get(:token)
   end
 end
