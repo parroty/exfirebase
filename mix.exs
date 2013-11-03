@@ -4,7 +4,7 @@ defmodule ExFirebase.Mixfile do
   def project do
     [ app: :exfirebase,
       version: "0.0.1",
-      elixir: "~> 0.10.2-dev",
+      elixir: ">= 0.10.2-dev",
       deps: deps(Mix.env),
       test_coverage: [tool: ExCoveralls]
     ]
@@ -33,8 +33,8 @@ defmodule ExFirebase.Mixfile do
   def deps(:prod) do
     [
       {:ibrowse, github: "cmullaparthi/ibrowse", ref: "866b0ff5aca229f1ef53653eabc8ed1720c13cd6", override: true},
-      {:json, github: "cblage/elixir-json"},
-      {:httpotion, github: "myfreeweb/httpotion"}
+      {:json, github: "parroty/elixir-json", branch: "version"},
+      {:httpotion, github: "parroty/httpotion", branch: "version"}
     ]
   end
 end
