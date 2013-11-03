@@ -5,7 +5,8 @@ defmodule ExFirebase.Mixfile do
     [ app: :exfirebase,
       version: "0.0.1",
       elixir: "~> 0.10.2-dev",
-      deps: deps(Mix.env)
+      deps: deps(Mix.env),
+      test_coverage: [tool: ExCoveralls]
     ]
   end
 
