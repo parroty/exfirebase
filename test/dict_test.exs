@@ -1,13 +1,14 @@
 Code.require_file "test_helper.exs", __DIR__
 
 defmodule ExFirebase.DictTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: false
   import ExVCR.Mock
   alias ExFirebase.Dict
 
   setup_all do
     ExFirebase.set_url("https://example-test.firebaseio.com/")
     ExVCR.Config.cassette_library_dir("fixture/vcr_cassettes", "fixture/custom_cassettes")
+    :ok
   end
 
   @dict1 HashDict.new([{"-J29m_688gi0nqXtK5sr", [{"a","1"}, {"b", "2"}]}])
@@ -46,7 +47,7 @@ defmodule ExFirebase.DictTest do
 end
 
 defmodule ExFirebase.Dict.RecordsTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: false
   import ExVCR.Mock
   alias ExFirebase.Dict
 
@@ -60,6 +61,7 @@ defmodule ExFirebase.Dict.RecordsTest do
   setup_all do
     ExFirebase.set_url("https://example-test.firebaseio.com/")
     ExVCR.Config.cassette_library_dir("fixture/vcr_cassettes", "fixture/custom_cassettes")
+    :ok
   end
 
   test "get records" do

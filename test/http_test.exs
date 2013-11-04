@@ -1,7 +1,7 @@
 Code.require_file "test_helper.exs", __DIR__
 
 defmodule ExFirebase.HTTPTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: false
   import Mock
 
   defrecord Dummy, body: "body"

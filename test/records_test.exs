@@ -8,6 +8,8 @@ defmodule ExFirebase.RecordsTest do
 
   setup_all do
     ExFirebase.set_url("https://example-test.firebaseio.com/")
+    ExVCR.Config.cassette_library_dir("fixture/vcr_cassettes", "fixture/custom_cassettes")
+    :ok
   end
 
   test "get records" do
@@ -35,5 +37,4 @@ defmodule ExFirebase.RecordsTest do
     keywords = [id: 2, name: "test"]
     assert(ExFirebase.Records.to_tuples([record]) == [keywords])
   end
-
 end

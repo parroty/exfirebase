@@ -7,6 +7,7 @@ defmodule ExFirebaseTest do
   setup_all do
     ExFirebase.set_url("https://example-test.firebaseio.com/")
     ExVCR.Config.cassette_library_dir("fixture/vcr_cassettes", "fixture/custom_cassettes")
+    :ok
   end
 
   test "get_items" do
