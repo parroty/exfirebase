@@ -25,7 +25,7 @@ defmodule ExFirebase.Dict do
   """
   def post(path, data) do
     ExFirebase.post(path, data)
-      |> Enum.first
+      |> Enum.at(0)
       |> parse(data)
   end
 

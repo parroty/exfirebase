@@ -1,12 +1,12 @@
 [ "ex_doc": {:git, "git://github.com/elixir-lang/ex_doc.git", "0332a08bbf692864f82c1d8beb002136f341cd70", []},
   "exactor": {:git, "git://github.com/sasa1977/exactor.git", "91029ecf3c0e3a58cf2002f0c7b67244536fccc7", []},
-  "excoveralls": {:git, "git://github.com/parroty/excoveralls.git", "d95494fe3d8fdea00ee6dac932bafeff791244bf", []},
+  "excoveralls": {:git, "git://github.com/parroty/excoveralls.git", "cb860b34721a3fea2c08ca0b267451c3c886c652", []},
   "exprintf": {:git, "git://github.com/parroty/exprintf.git", "ef4d3dc220ba23f6eb3544705c949d49bc24f5bc", []},
   "exvcr": {:git, "git://github.com/parroty/exvcr.git", "cb4aa69c37c8f17abf56c96888fc633447a548bf", []},
-  "httpotion": {:git, "git://github.com/parroty/httpotion.git", "07d7048981e5c604628ea5e9bf732ef784d7cbdf", [{:branch, "version"}]},
-  "ibrowse": {:git, "git://github.com/cmullaparthi/ibrowse.git", "866b0ff5aca229f1ef53653eabc8ed1720c13cd6", [{:ref, "866b0ff5aca229f1ef53653eabc8ed1720c13cd6"}]},
+  "httpotion": {:git, "git://github.com/parroty/httpotion.git", "07d7048981e5c604628ea5e9bf732ef784d7cbdf", [branch: "version"]},
+  "ibrowse": {:git, "git://github.com/cmullaparthi/ibrowse.git", "866b0ff5aca229f1ef53653eabc8ed1720c13cd6", [ref: "866b0ff5aca229f1ef53653eabc8ed1720c13cd6"]},
   "jsex": {:git, "git://github.com/talentdeficit/jsex.git", "c9df36f07b2089a73ab6b32074c01728f1e5a2e1", []},
-  "json": {:git, "git://github.com/parroty/elixir-json.git", "50bba6c836cd12a2f2afc7e3154cc845edd5f5a0", [{:branch, "version"}]},
-  "jsx": {:git, "git://github.com/talentdeficit/jsx.git", "e50af6e109cb03bd26acf715cbc77de746507d1d", [{:tag, "v1.4.3"}]},
+  "json": {:git, "git://github.com/parroty/elixir-json.git", "50bba6c836cd12a2f2afc7e3154cc845edd5f5a0", [branch: "version"]},
+  "jsx": {:git, "git://github.com/talentdeficit/jsx.git", "e50af6e109cb03bd26acf715cbc77de746507d1d", [tag: "v1.4.3"]},
   "meck": {:git, "git://github.com/eproxus/meck.git", "1286aba1cb6bbd6c9fc3f817740758b224843ee7", []},
-  "mock": {:git, "git://github.com/parroty/mock.git", "9ccf26715f1d03e780c2caf7d8023535df631845", [{:branch, "version"}]} ]
+  "mock": {:git, "git://github.com/parroty/mock.git", "9ccf26715f1d03e780c2caf7d8023535df631845", [branch: "version"]} ]
