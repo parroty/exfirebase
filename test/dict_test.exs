@@ -2,7 +2,7 @@ Code.require_file "test_helper.exs", __DIR__
 
 defmodule ExFirebase.DictTest do
   use ExUnit.Case, async: false
-  import ExVCR.Mock
+  use ExVCR.Mock
   alias ExFirebase.Dict
 
   setup_all do
@@ -48,7 +48,7 @@ end
 
 defmodule ExFirebase.Dict.RecordsTest do
   use ExUnit.Case, async: false
-  import ExVCR.Mock
+  use ExVCR.Mock
   alias ExFirebase.Dict
 
   @dict1 HashDict.new([{"-J29m_688gi0nqXtK5sr", [{"a","1"}, {"b", "2"}]}])

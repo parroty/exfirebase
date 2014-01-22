@@ -2,7 +2,7 @@ Code.require_file "test_helper.exs", __DIR__
 
 defmodule ExFirebaseTest do
   use ExUnit.Case, async: false
-  import ExVCR.Mock
+  use ExVCR.Mock
 
   setup_all do
     ExFirebase.set_url("https://example-test.firebaseio.com/")

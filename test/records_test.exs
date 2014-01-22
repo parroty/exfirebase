@@ -2,7 +2,7 @@ Code.require_file "test_helper.exs", __DIR__
 
 defmodule ExFirebase.RecordsTest do
   use ExUnit.Case, async: false
-  import ExVCR.Mock
+  use ExVCR.Mock
 
   defrecord Dummy, id: 1, name: "name"
 
