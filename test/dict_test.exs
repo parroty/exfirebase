@@ -12,18 +12,10 @@ defmodule ExFirebase.DictTest do
   end
 
   @dict1 HashDict.new([{"-J29m_688gi0nqXtK5sr", [{"a","1"}, {"b", "2"}]}])
-  @dict2 HashDict.put(@dict1, "-J29pC-tzADFDVUIdS-p", [{"c","3"}, {"d", "4"}])
-  @dict3 HashDict.new([{"-J29m_688gi0nqXtK5sr", [{"a","1"}, {"b", "2"}]}])
 
   test "get single posted object" do
     use_cassette "get_objects", custom: true do
       assert(Dict.get("objects") == @dict1)
-    end
-  end
-
-  test "get multiple posted objects" do
-    use_cassette "get_objects2", custom: true do
-      assert(Dict.get("objects2") == @dict2)
     end
   end
 
@@ -50,10 +42,6 @@ defmodule ExFirebase.Dict.RecordsTest do
   use ExUnit.Case, async: false
   use ExVCR.Mock
   alias ExFirebase.Dict
-
-  @dict1 HashDict.new([{"-J29m_688gi0nqXtK5sr", [{"a","1"}, {"b", "2"}]}])
-  @dict2 HashDict.put(@dict1, "-J29pC-tzADFDVUIdS-p", [{"c","3"}, {"d", "4"}])
-  @dict3 HashDict.new([{"-J29m_688gi0nqXtK5sr", [{"a","1"}, {"b", "2"}]}])
 
   defrecord NoIdDummy, a: nil, b: nil, c: nil, d: nil
   defrecord Dummy, id: nil, a: nil, b: nil, c: nil, d: nil
