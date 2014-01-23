@@ -6,7 +6,7 @@
   "httpotion": {:git, "git://github.com/myfreeweb/httpotion.git", "3f97f62bbf40e7b941e3b52dd130cf95b6b3fb6e", []},
   "ibrowse": {:git, "git://github.com/cmullaparthi/ibrowse.git", "866b0ff5aca229f1ef53653eabc8ed1720c13cd6", [ref: "866b0ff5aca229f1ef53653eabc8ed1720c13cd6"]},
   "jsex": {:git, "git://github.com/talentdeficit/jsex.git", "c9df36f07b2089a73ab6b32074c01728f1e5a2e1", []},
-  "json": {:git, "git://github.com/parroty/elixir-json.git", "50bba6c836cd12a2f2afc7e3154cc845edd5f5a0", [branch: "version"]},
+  "json": {:git, "git://github.com/cblage/elixir-json.git", "a16a82805771b99fab5b567eb3678bca1dce424e", []},
   "jsx": {:git, "git://github.com/talentdeficit/jsx.git", "e50af6e109cb03bd26acf715cbc77de746507d1d", [tag: "v1.4.3"]},
   "meck": {:git, "git://github.com/eproxus/meck.git", "1286aba1cb6bbd6c9fc3f817740758b224843ee7", []},
   "mock": {:git, "git://github.com/parroty/mock.git", "9ccf26715f1d03e780c2caf7d8023535df631845", [branch: "version"]} ]

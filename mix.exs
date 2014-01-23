@@ -33,7 +33,7 @@ defmodule ExFirebase.Mixfile do
   def deps(:prod) do
     [
       {:ibrowse, github: "cmullaparthi/ibrowse", ref: "866b0ff5aca229f1ef53653eabc8ed1720c13cd6", override: true},
-      {:json, github: "parroty/elixir-json", branch: "version"},
+      {:json, github: "cblage/elixir-json" },
       {:httpotion, github: "myfreeweb/httpotion"}
     ]
   end
