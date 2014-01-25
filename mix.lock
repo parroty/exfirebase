@@ -2,7 +2,7 @@
   "exactor": {:git, "git://github.com/sasa1977/exactor.git", "91029ecf3c0e3a58cf2002f0c7b67244536fccc7", []},
   "excoveralls": {:git, "git://github.com/parroty/excoveralls.git", "bff3a01679e27f43380138c3f52f30e74426bdf8", []},
   "exprintf": {:git, "git://github.com/parroty/exprintf.git", "ef4d3dc220ba23f6eb3544705c949d49bc24f5bc", []},
-  "exvcr": {:git, "git://github.com/parroty/exvcr.git", "1c932582293e0c7ea0dec3d3b08741757193edce", []},
+  "exvcr": {:git, "git://github.com/parroty/exvcr.git", "6cc2dde8c454a77a42b80f902b3330aa2ffbc29a", []},
   "httpotion": {:git, "git://github.com/myfreeweb/httpotion.git", "3f97f62bbf40e7b941e3b52dd130cf95b6b3fb6e", []},
   "ibrowse": {:git, "git://github.com/cmullaparthi/ibrowse.git", "866b0ff5aca229f1ef53653eabc8ed1720c13cd6", [ref: "866b0ff5aca229f1ef53653eabc8ed1720c13cd6"]},
   "jsex": {:git, "git://github.com/talentdeficit/jsex.git", "c9df36f07b2089a73ab6b32074c01728f1e5a2e1", []},
