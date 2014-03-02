@@ -20,7 +20,7 @@ defmodule ExFirebase do
   Get json url for the specified path concatinated with the
   prespecified base url.
   """
-  def get_url(path, options // nil) do
+  def get_url(path, options \\ nil) do
     generate_url(ExFirebase.Setting.get_url(path), get_auth_token, options)
   end
 
@@ -41,7 +41,7 @@ defmodule ExFirebase do
   @doc """
   Get objects on the specified path.
   """
-  def get(path // "") do
+  def get(path \\ "") do
     send_request(path, &HTTP.get/1)
   end
 
@@ -97,7 +97,7 @@ defmodule ExFirebase do
 
     - options[pretty: true] : Specify 'print=pretty' for human readable format.
   """
-  def get_raw_json(path // "", options // nil) do
+  def get_raw_json(path \\ "", options \\ nil) do
     HTTP.get(get_url(path, options))
   end
 

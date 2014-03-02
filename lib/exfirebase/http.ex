@@ -28,7 +28,7 @@ defmodule ExFirebase.HTTP do
     send_to_server(url, &HTTPotion.delete/1)
   end
 
-  defp send_to_server(url, method, data // nil) do
+  defp send_to_server(url, method, data \\ nil) do
     HTTPotion.start
     if data == nil do
       response = method.(url)

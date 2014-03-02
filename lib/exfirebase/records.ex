@@ -7,7 +7,7 @@ defmodule ExFirebase.Records do
   @doc """
   Get records from the specified path. The record_type indicates the record type.
   """
-  def get(path // "", record_type) when is_atom(record_type) do
+  def get(path \\ "", record_type) when is_atom(record_type) do
     record_tuples = ExFirebase.send_request(path, &HTTP.get/1)
     from_tuples(record_tuples, record_type)
   end
@@ -15,7 +15,7 @@ defmodule ExFirebase.Records do
   @doc """
   Put records to the specified path.
   """
-  def put(path // "", record_list) do
+  def put(path \\ "", record_list) do
     tuples = to_tuples(record_list)
     ExFirebase.send_request(path, &HTTP.put/2, tuples)
   end
