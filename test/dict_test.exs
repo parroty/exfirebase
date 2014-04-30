@@ -11,7 +11,7 @@ defmodule ExFirebase.DictTest do
     :ok
   end
 
-  @dict1 HashDict.new([{"-J29m_688gi0nqXtK5sr", [{"a","1"}, {"b", "2"}]}])
+  @dict1 Enum.into([{"-J29m_688gi0nqXtK5sr", [{"a","1"}, {"b", "2"}]}], HashDict.new)
 
   test "get single posted object" do
     use_cassette "get_objects", custom: true do
