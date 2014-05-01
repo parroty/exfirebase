@@ -26,7 +26,7 @@ defmodule ExFirebase.Setting do
   end
 
   def get_url(path) do
-    url = get(:url)
+    url = Elixir.ExFirebase.Setting.get(:url)
     if url == nil, do: raise ExFirebaseError.new(message: "call 'set_url' before using 'get_url'")
     url <> path <> ".json"
   end
@@ -36,6 +36,6 @@ defmodule ExFirebase.Setting do
   end
 
   def get_auth_token do
-    get(:token)
+    Elixir.ExFirebase.Setting.get(:token)
   end
 end

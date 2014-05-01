@@ -41,7 +41,11 @@ defmodule ExFirebase do
   @doc """
   Get objects on the specified path.
   """
-  def get(path \\ "") do
+  def get do
+    ExFirebase.get("")
+  end
+
+  def get(path) do
     send_request(path, &HTTP.get/1)
   end
 
@@ -57,16 +61,16 @@ defmodule ExFirebase do
   Push the object into the first position of the items
   """
   def push(path, object) do
-    items = get(path)
-    put(path, [object|items])
+    items = ExFirebase.get(path)
+    ExFirebase.put(path, [object|items])
   end
 
   @doc """
   Append the object into the last position of the items
   """
   def append(path, object) do
-    items = get(path)
-    put(path, items ++ [object])
+    items = ExFirebase.get(path)
+    ExFirebase.put(path, items ++ [object])
   end
 
   @doc """

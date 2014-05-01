@@ -15,7 +15,11 @@ defmodule ExFirebase.Records do
   @doc """
   Put records to the specified path.
   """
-  def put(path \\ "", record_list) do
+  def put(record_list) do
+    ExFirebase.Records.put("", record_list)
+  end
+
+  def put(path, record_list) do
     tuples = to_tuples(record_list)
     ExFirebase.send_request(path, &HTTP.put/2, tuples)
   end
