@@ -3,8 +3,8 @@ defmodule ExFirebase.Mixfile do
 
   def project do
     [ app: :exfirebase,
-      version: "0.0.1",
-      elixir: ">= 0.10.2-dev",
+      version: "0.1.0",
+      elixir: "~> 0.13.3",
       deps: deps(Mix.env),
       test_coverage: [tool: ExCoveralls]
     ]
@@ -25,7 +25,7 @@ defmodule ExFirebase.Mixfile do
     deps(:prod) ++
       [
         {:mock, github: "parroty/mock", branch: "version"},
-        {:excoveralls, github: "parroty/excoveralls"},
+        {:excoveralls, "~> 0.2"},
         {:exvcr, github: "parroty/exvcr"}
       ]
   end

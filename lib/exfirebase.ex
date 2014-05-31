@@ -116,7 +116,7 @@ defmodule ExFirebase do
   Send the request to server and returns response in tuple/list format
   """
   def send_request(path, method, data) do
-    method.(get_url(path), JSON.encode!(data)) |> parse_json
+    method.(get_url(path), JSEX.encode!(data)) |> parse_json
   end
 
   defp generate_url(url, token, options) do
@@ -148,7 +148,7 @@ defmodule ExFirebase do
   defp parse_json("null"), do: []
 
   defp parse_json(string) do
-    JSON.decode!(string) |> parse_object
+    JSEX.decode!(string) |> parse_object
   end
 
   defp parse_object(object) when is_record(object, HashDict) do

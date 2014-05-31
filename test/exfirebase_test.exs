@@ -12,7 +12,7 @@ defmodule ExFirebaseTest do
 
   test "get_items" do
     use_cassette "get_items", custom: true do
-      assert(ExFirebase.get("items") == [{"first", "Jack"}, {"last", "Sparrow"}])
+      assert(ExFirebase.get("items") == %{"first" => "Jack", "last" => "Sparrow"})
     end
   end
 
@@ -24,14 +24,14 @@ defmodule ExFirebaseTest do
 
   test "get with empty path returns data" do
     use_cassette "get_root", custom: true do
-      assert(ExFirebase.get == [{"root_key", "root_value"}])
+      assert(ExFirebase.get == %{"root_key" => "root_value"})
     end
   end
 
   test "get with auth token" do
     ExFirebase.set_auth_token("yyy")
     use_cassette "get_root_with_auth", custom: true do
-      assert(ExFirebase.get == [{"root_key", "root_value"}])
+      assert(ExFirebase.get == %{"root_key" => "root_value"})
     end
     ExFirebase.set_auth_token(nil)
   end
@@ -58,25 +58,25 @@ defmodule ExFirebaseTest do
 
   test "put" do
     use_cassette "get_items_push", custom: true do
-      assert(ExFirebase.put("items_push", "abc") == [{"name", "-INOQPH-aV_psbk3ZXEX"}])
+      assert(ExFirebase.put("items_push", "abc") == %{"name" => "-INOQPH-aV_psbk3ZXEX"})
     end
   end
 
   test "post" do
     use_cassette "get_items_push", custom: true do
-      assert(ExFirebase.post("items_push", "abc") == [{"name", "-INOQPH-aV_psbk3ZXEX"}])
+      assert(ExFirebase.post("items_push", "abc") == %{"name" => "-INOQPH-aV_psbk3ZXEX"})
     end
   end
 
   test "patch" do
     use_cassette "get_items_push", custom: true do
-      assert(ExFirebase.patch("items_push", "abc") == [{"name", "-INOQPH-aV_psbk3ZXEX"}])
+      assert(ExFirebase.patch("items_push", "abc") == %{"name" => "-INOQPH-aV_psbk3ZXEX"})
     end
   end
 
   test "delete" do
     use_cassette "get_items_push", custom: true do
-      assert(ExFirebase.delete("items_push") == [{"name", "-INOQPH-aV_psbk3ZXEX"}])
+      assert(ExFirebase.delete("items_push") == %{"name" => "-INOQPH-aV_psbk3ZXEX"})
     end
   end
 

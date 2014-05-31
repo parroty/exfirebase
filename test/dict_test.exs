@@ -11,7 +11,7 @@ defmodule ExFirebase.DictTest do
     :ok
   end
 
-  @dict1 Enum.into([{"-J29m_688gi0nqXtK5sr", [{"a","1"}, {"b", "2"}]}], HashDict.new)
+  @dict1 Enum.into([{"-J29m_688gi0nqXtK5sr", %{"a" => "1", "b" => "2"}}], HashDict.new)
 
   test "get single posted object" do
     use_cassette "get_objects", custom: true do
@@ -42,9 +42,15 @@ defmodule ExFirebase.Dict.RecordsTest do
   use ExUnit.Case, async: false
   use ExVCR.Mock
   alias ExFirebase.Dict
+  import ExFirebase.Records
+  import ExFirebase.Dict.Records
 
-  defrecord NoIdDummy, a: nil, b: nil, c: nil, d: nil
-  defrecord Dummy, id: nil, a: nil, b: nil, c: nil, d: nil
+  defmodule NoIdDummy do
+    defstruct a: nil, b: nil, c: nil, d: nil
+  end
+  defmodule Dummy do
+    defstruct id: nil, a: nil, b: nil, c: nil, d: nil
+  end
 
   setup_all do
     ExFirebase.set_url("https://example-test.firebaseio.com/")
@@ -54,35 +60,35 @@ defmodule ExFirebase.Dict.RecordsTest do
 
   test "get records" do
     use_cassette "get_objects", custom: true do
-      assert(Dict.Records.get("objects", Dummy) == [Dummy.new(id: "-J29m_688gi0nqXtK5sr", a: "1", b: "2")])
+      assert(Dict.Records.get("objects", Dummy) == [%Dummy{id: "-J29m_688gi0nqXtK5sr", a: "1", b: "2"}])
     end
   end
 
   test "get a record" do
     use_cassette "get_objects3", custom: true do
       assert(Dict.Records.get("objects", "-J29m_688gi0nqXtK5sr", Dummy) ==
-        Dummy.new(id: "-J29m_688gi0nqXtK5sr", a: "1", b: "2")
+        %Dummy{id: "-J29m_688gi0nqXtK5sr", a: "1", b: "2"}
       )
     end
   end
 
   test "post a record" do
     use_cassette "get_objects_post", custom: true do
-      assert(Dict.Records.post("objects_post", Dummy.new(a: "1", b: "2")) ==
-               Dummy.new(id: "-J29m_688gi0nqXtK5sr", a: "1", b: "2"))
+      assert(Dict.Records.post("objects_post", %Dummy{a: "1", b: "2"}) ==
+               %Dummy{id: "-J29m_688gi0nqXtK5sr", a: "1", b: "2"})
     end
   end
 
   test "update a record" do
     use_cassette "get_objects_post_patch", custom: true do
-      rec = Dummy.new(id: "-J30m_688gi0nqXtK5sr", c: "3", d: "4")
+      rec = %Dummy{id: "-J30m_688gi0nqXtK5sr", c: "3", d: "4"}
       assert(Dict.Records.patch("objects", rec) == rec)
     end
   end
 
   test "delete a record" do
     use_cassette "get_objects_post_delete", custom: true do
-      assert(Dict.Records.delete("objects", Dummy.new(id: "-J31m_688gi0nqXtK5sr", c: "3", d: "4")) == [])
+      assert(Dict.Records.delete("objects", %Dummy{id: "-J31m_688gi0nqXtK5sr", c: "3", d: "4"}) == [])
     end
   end
 
@@ -97,7 +103,7 @@ defmodule ExFirebase.Dict.RecordsTest do
   test "updating a record with nil id throws error" do
     assert_raise RuntimeError, fn ->
       use_cassette "get_objects_post_patch", custom: true do
-        Dict.Records.patch("objects", Dummy.new(id: nil, c: "3", d: "4"))
+        Dict.Records.patch("objects", %Dummy{id: nil, c: "3", d: "4"})
       end
     end
   end
