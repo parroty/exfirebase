@@ -58,7 +58,12 @@ defmodule ExFirebase.Dict.Records do
   @moduledoc """
   Provides dict oerations along with record objects.
   """
-  require ExFirebase.Records
+  defmacro __using__(_opts \\ []) do
+    quote do
+      import ExFirebase.Records
+      import ExFirebase.Dict.Records
+    end
+  end
 
   @doc """
   Get objects from the specified path as the Record format.
@@ -83,8 +88,13 @@ defmodule ExFirebase.Dict.Records do
     quote do
       verify_record_has_id_field(unquote(record_type))
 
-      tuple = Map.put(ExFirebase.Dict.get(unquote(path), unquote(key)), "id", unquote(key))
-      ExFirebase.Records.from_tuple(tuple, unquote(record_type))
+      map = ExFirebase.Dict.get(unquote(path), unquote(key))
+      if map == [] do
+        raise %ExFirebaseError{message: "Specified key [#{unquote(key)}] was not found."}
+      else
+        tuple = Map.put(map, "id", unquote(key))
+        ExFirebase.Records.from_tuple(tuple, unquote(record_type))
+      end
     end
   end
 

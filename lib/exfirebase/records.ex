@@ -43,9 +43,14 @@ defmodule ExFirebase.Records do
   @doc "convert from tuple to record"
   defmacro from_tuple(tuple, record_type) do
     quote do
-      keywords = Enum.map(unquote(tuple), fn({a, b}) -> {binary_to_atom(a), b} end)
-      #record_type.new(keywords)
-      Enum.reduce(keywords, %unquote(record_type){}, fn({k,v}, acc) -> Map.put(acc, k, v) end)
+      keywords = Enum.map(unquote(tuple), fn({a, b}) -> {String.to_atom(a), b} end)
+      Enum.reduce(keywords, %unquote(record_type){}, fn({k,v}, acc) ->
+        if k == :__struct__ do
+          Map.put(acc, k, String.to_atom(v))
+        else
+          Map.put(acc, k, v)
+        end
+      end)
     end
   end
 end
