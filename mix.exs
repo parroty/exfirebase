@@ -26,7 +26,8 @@ defmodule ExFirebase.Mixfile do
       [
         {:mock, github: "parroty/mock", branch: "version"},
         {:excoveralls, "~> 0.2"},
-        {:exvcr, github: "parroty/exvcr"}
+        {:exvcr, github: "parroty/exvcr"},
+        {:jsex, "~> 2.0"}
       ]
   end
 
