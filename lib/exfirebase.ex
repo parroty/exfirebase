@@ -7,6 +7,7 @@ defmodule ExFirebase do
     - ExFirebase.Objects : Helper for getting/posting objects
   """
   alias ExFirebase.HTTP
+  require Record
 
   @doc """
   Setup base url for Firebase (https://xxx.firebaseio.com/).
@@ -151,7 +152,7 @@ defmodule ExFirebase do
     JSEX.decode!(string) |> parse_object
   end
 
-  defp parse_object(object) when is_record(object, HashDict) do
+  defp parse_object(object) when Record.record?(object, HashDict) do
     Enum.map(object.to_list, &parse_object/1)
   end
 
