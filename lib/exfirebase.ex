@@ -157,7 +157,7 @@ defmodule ExFirebase do
   end
 
   defp parse_object(object) when is_tuple(object) do
-    Enum.map(tuple_to_list(object), &parse_object/1) |> list_to_tuple
+    Enum.map(Tuple.to_list(object), &parse_object/1) |> List.to_tuple
   end
 
   defp parse_object(object) when is_list(object) do

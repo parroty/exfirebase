@@ -1,1 +1,3 @@
-defexception ExFirebaseError, message: "error"
+defmodule ExFirebaseError do
+  defexception [message: "error"]
+end
