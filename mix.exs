@@ -6,6 +6,8 @@ defmodule ExFirebase.Mixfile do
       version: "0.1.0",
       elixir: "~> 0.14.2",
       deps: deps,
+      description: description,
+      package: package,
       test_coverage: [tool: ExCoveralls]
     ]
   end
@@ -26,5 +28,17 @@ defmodule ExFirebase.Mixfile do
       {:exvcr, "~> 0.2", only: [:dev, :test]},
       {:mock, github: "parroty/mock", branch: "version", only: :test}
     ]
+  end
+
+  defp description do
+    """
+    An elixir library for accessing the Firebase REST API.
+    """
+  end
+
+  defp package do
+    [ contributors: ["parroty"],
+      licenses: ["MIT"],
+      links: [ { "GitHub", "https://github.com/parroty/exfirebase" } ] ]
   end
 end
