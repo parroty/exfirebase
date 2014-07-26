@@ -39,6 +39,6 @@ defmodule ExFirebase.Mixfile do
   defp package do
     [ contributors: ["parroty"],
       licenses: ["MIT"],
-      links: [ { "GitHub", "https://github.com/parroty/exfirebase" } ] ]
+      links: %{"GitHub" => "https://github.com/parroty/exfirebase"} ]
   end
 end
