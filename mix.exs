@@ -4,7 +4,7 @@ defmodule ExFirebase.Mixfile do
   def project do
     [ app: :exfirebase,
       version: "0.1.0",
-      elixir: "~> 0.14.2",
+      elixir: "~> 0.14.2 or ~> 0.15.0",
       deps: deps,
       description: description,
       package: package,
@@ -21,7 +21,7 @@ defmodule ExFirebase.Mixfile do
   # { :foobar, "~> 0.1", git: "https://github.com/elixir-lang/foobar.git" }
   def deps do
     [
-      {:ibrowse, github: "cmullaparthi/ibrowse", ref: "866b0ff5aca229f1ef53653eabc8ed1720c13cd6", override: true},
+      {:ibrowse, github: "cmullaparthi/ibrowse"},
       {:jsex, "~> 2.0"},
       {:httpotion, "~> 0.2"},
       {:excoveralls, "~> 0.3", only: :dev},

@@ -2,7 +2,7 @@
   "excoveralls": {:package, "0.3.1"},
   "exvcr": {:package, "0.2.1"},
   "httpotion": {:package, "0.2.4"},
-  "ibrowse": {:git, "git://github.com/cmullaparthi/ibrowse.git", "866b0ff5aca229f1ef53653eabc8ed1720c13cd6", [ref: "866b0ff5aca229f1ef53653eabc8ed1720c13cd6"]},
+  "ibrowse": {:git, "git://github.com/cmullaparthi/ibrowse.git", "fae777f86d31407c4442a37f8017f6f2ea6c0a22", []},
   "jsex": {:package, "2.0.0"},
   "jsx": {:package, "2.0.4"},
   "meck": {:git, "git://github.com/eproxus/meck.git", "dde759050eff19a1a80fd854d7375174b191665d", [tag: "0.8.2"]},
