@@ -3,8 +3,8 @@ defmodule ExFirebase.Mixfile do
 
   def project do
     [ app: :exfirebase,
-      version: "0.1.0",
-      elixir: "~> 0.14.2 or ~> 0.15.0",
+      version: "0.2.0",
+      elixir: "~> 1.0.0",
       deps: deps,
       description: description,
       package: package,
@@ -25,8 +25,8 @@ defmodule ExFirebase.Mixfile do
       {:jsex, "~> 2.0"},
       {:httpotion, "~> 0.2"},
       {:excoveralls, "~> 0.3", only: :dev},
-      {:exvcr, "~> 0.2", only: [:dev, :test]},
-      {:mock, github: "parroty/mock", branch: "version", only: :test}
+      {:exvcr, "~> 0.3", only: [:dev, :test]},
+      {:mock, github: "parroty/mock", only: [:dev, :test], branch: "fix"}
     ]
   end
 

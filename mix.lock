@@ -1,9 +1,12 @@
-%{"exactor": {:package, "0.5.0"},
-  "excoveralls": {:package, "0.3.1"},
-  "exvcr": {:package, "0.2.1"},
+%{"exactor": {:package, "0.7.0"},
+  "excoveralls": {:package, "0.3.3"},
+  "exvcr": {:package, "0.3.2"},
+  "hackney": {:package, "0.13.1"},
+  "httpoison": {:package, "0.4.2"},
   "httpotion": {:package, "0.2.4"},
   "ibrowse": {:git, "git://github.com/cmullaparthi/ibrowse.git", "fae777f86d31407c4442a37f8017f6f2ea6c0a22", []},
+  "idna": {:package, "1.0.1"},
   "jsex": {:package, "2.0.0"},
-  "jsx": {:package, "2.0.4"},
-  "meck": {:git, "git://github.com/eproxus/meck.git", "dde759050eff19a1a80fd854d7375174b191665d", [tag: "0.8.2"]},
-  "mock": {:git, "git://github.com/parroty/mock.git", "cd6ddd5c37a9da2d2da72f1f3060a7336ef4c7f5", [branch: "version"]}}
+  "jsx": {:package, "2.1.1"},
+  "meck": {:package, "0.8.2"},
+  "mock": {:git, "git://github.com/parroty/mock.git", "33d095a9b028f9f97f6d506ae6b2feb34630fdc5", [branch: "fix"]}}

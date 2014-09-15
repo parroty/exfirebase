@@ -152,7 +152,7 @@ defmodule ExFirebase do
     JSEX.decode!(string) |> parse_object
   end
 
-  defp parse_object(object) when Record.record?(object, HashDict) do
+  defp parse_object(object) when Record.is_record(object, HashDict) do
     Enum.map(object.to_list, &parse_object/1)
   end
 
