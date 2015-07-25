@@ -10,6 +10,11 @@ defmodule ExFirebaseTest do
     :ok
   end
 
+  setup do
+    ExFirebase.set_auth_token(nil)
+    :ok
+  end
+
   test "get_items" do
     use_cassette "get_items", custom: true do
       assert(ExFirebase.get("items") == %{"first" => "Jack", "last" => "Sparrow"})

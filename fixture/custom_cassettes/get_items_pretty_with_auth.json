@@ -1,7 +1,7 @@
 [
   {
     "request": {
-      "url": "https://example-test.firebaseio.com/items.json\\?print=pretty&auth=zzz"
+      "url": "https://example-test.firebaseio.com/items.json?print=pretty&auth=zzz"
     },
     "response": {
       "status_code": 200,

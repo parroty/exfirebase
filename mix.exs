@@ -22,10 +22,10 @@ defmodule ExFirebase.Mixfile do
   def deps do
     [
       {:ibrowse, github: "cmullaparthi/ibrowse"},
-      {:jsex, "~> 2.0"},
-      {:httpotion, "~> 0.2"},
+      {:exjsx, "~> 3.2"},
+      {:httpotion, "~> 1.0"},
       {:excoveralls, "~> 0.3", only: :dev},
-      {:exvcr, "~> 0.3", only: [:dev, :test]},
+      {:exvcr, "~> 0.4", only: [:dev, :test]},
       {:mock, github: "parroty/mock", only: [:dev, :test], branch: "fix"}
     ]
   end
