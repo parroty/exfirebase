@@ -24,9 +24,9 @@ defmodule ExFirebase.Mixfile do
       {:ibrowse, github: "cmullaparthi/ibrowse"},
       {:exjsx, "~> 3.2"},
       {:httpotion, "~> 1.0"},
-      {:excoveralls, "~> 0.3", only: :dev},
-      {:exvcr, "~> 0.4", only: [:dev, :test]},
-      {:mock, github: "parroty/mock", only: [:dev, :test], branch: "fix"}
+      {:excoveralls, "~> 0.3", only: :test},
+      {:exvcr, "~> 0.4", only: :test},
+      {:mock, github: "parroty/mock", only: :test, branch: "fix"}
     ]
   end
 
