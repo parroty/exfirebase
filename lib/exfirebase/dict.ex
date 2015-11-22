@@ -25,8 +25,8 @@ defmodule ExFirebase.Dict do
   """
   def post(path, data) do
     ExFirebase.post(path, data)
-      |> Enum.at(0)
-      |> parse(data)
+    |> Enum.at(0)
+    |> parse(data)
   end
 
   @doc """
@@ -75,8 +75,8 @@ defmodule ExFirebase.Dict.Records do
 
       dict = ExFirebase.Dict.get(unquote(path))
       HashDict.keys(dict)
-        |> Enum.map(&extract_record(dict, &1))
-        |> ExFirebase.Records.from_tuples(unquote(record_type))
+      |> Enum.map(&extract_record(dict, &1))
+      |> ExFirebase.Records.from_tuples(unquote(record_type))
     end
   end
 
@@ -103,7 +103,7 @@ defmodule ExFirebase.Dict.Records do
   """
   def post(path, record) do
     ExFirebase.Dict.post(path, Map.to_list(%{record | id: nil}))
-      |> update_record_id(record)
+    |> update_record_id(record)
   end
 
   defp update_record_id({key, _params}, record) do
