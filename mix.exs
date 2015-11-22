@@ -3,8 +3,8 @@ defmodule ExFirebase.Mixfile do
 
   def project do
     [ app: :exfirebase,
-      version: "0.3.0",
-      elixir: "~> 1.0.0",
+      version: "0.4.0",
+      elixir: "~> 1.0",
       deps: deps,
       description: description,
       package: package,
@@ -23,9 +23,9 @@ defmodule ExFirebase.Mixfile do
     [
       {:ibrowse, github: "cmullaparthi/ibrowse"},
       {:exjsx, "~> 3.2"},
-      {:httpotion, "~> 1.0"},
-      {:excoveralls, "~> 0.3", only: :test},
-      {:exvcr, "~> 0.4", only: :test},
+      {:httpotion, "~> 2.1"},
+      {:excoveralls, "~> 0.4", only: :test},
+      {:exvcr, "~> 0.6", only: :test},
       {:mock, github: "parroty/mock", only: :test, branch: "fix"}
     ]
   end

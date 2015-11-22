@@ -33,7 +33,7 @@ defmodule ExFirebase.HTTP do
     if data == nil do
       response = method.(url)
     else
-      response = method.(url, data)
+      response = method.(url, [body: data])
     end
     response.body
   end
