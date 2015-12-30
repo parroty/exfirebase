@@ -30,11 +30,14 @@ defmodule ExFirebase.HTTP do
 
   defp send_to_server(url, method, data \\ nil) do
     HTTPotion.start
-    if data == nil do
-      response = method.(url)
-    else
-      response = method.(url, [body: data])
-    end
+
+    response =
+      if data == nil do
+        method.(url)
+      else
+        method.(url, [body: data])
+      end
+
     response.body
   end
 end
