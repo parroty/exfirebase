@@ -24,7 +24,7 @@ defmodule ExFirebase.Mixfile do
       {:exjsx, "~> 3.2"},
       {:httpotion, "~> 3.0"},
       {:excoveralls, "~> 0.4", only: :test},
-      {:exvcr, "~> 0.6", only: :test},
+      {:exvcr, "~> 0.8", only: :test},
       {:mock, github: "parroty/mock", only: :test, branch: "fix"}
     ]
   end
