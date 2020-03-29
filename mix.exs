@@ -21,11 +21,10 @@ defmodule ExFirebase.Mixfile do
   # { :foobar, "~> 0.1", git: "https://github.com/elixir-lang/foobar.git" }
   def deps do
     [
-      {:ibrowse, github: "cmullaparthi/ibrowse"},
       {:exjsx, "~> 3.2"},
-      {:httpotion, "~> 2.1"},
+      {:httpotion, "~> 3.0"},
       {:excoveralls, "~> 0.4", only: :test},
-      {:exvcr, "~> 0.6", only: :test},
+      {:exvcr, "~> 0.8", only: :test},
       {:mock, github: "parroty/mock", only: :test, branch: "fix"}
     ]
   end
